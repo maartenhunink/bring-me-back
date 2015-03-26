@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "love-extension";
+  src:url("../fonts/love-extension.eot");
+  src:url("../fonts/love-extension.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/love-extension.woff") format("woff"),
+    url("../fonts/love-extension.ttf") format("truetype"),
+    url("../fonts/love-extension.svg#love-extension") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "love-extension" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "love-extension" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-trash:before {
+  content: "a";
+}
+
+.icon-heart:before {
+  content: "b";
+}
+
+body{
+	font-family: 'Lucida Grande', sans-serif;
+}
+section{
+	-webkit-padding-start: 18px;
+	margin-bottom: 20px;
+	margin-top: 8px;
+	max-width: 600px;
+}
+body section:first-of-type {
+	margin-top: 20px;
+}
+body section:last-of-type {
+	margin-bottom: 0;
+}
+section > h3{
+	-webkit-margin-start: -18px;
+}
+
+p.small{
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+p.light{
+	color: #bbb;
+}
+#section-blocked-sites p{
+	margin-top: 4px;
+}
+
+.url{
+	padding: 5px 0 5px 20px;
+	position: relative;
+}
+.url img{
+	width: 16px;
+	position: absolute;
+	left: 0;
+	top: 4px;
+	clear: both;
+	margin-right: 4px;
+}
+.url .delete-item{
+	position: absolute;
+	left: 0;
+	top: 4px;
+	text-decoration: none;
+	color: #ccc;
+	display: none;
+	padding: 2px;
+}
+
+.url:hover .delete-item{
+	display: block;
+}
+.url:hover img{
+	display: none;
+}
+
+.url:hover .delete-item:hover{
+	color: red;
+}

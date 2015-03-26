@@ -1,0 +1,48 @@
+[
+    {
+        "bgImage": "img/bg/patting.gif",
+        "credits": "Image: <a target='_blank' href='http://iwdrm.tumblr.com/post/41436659343'>IWDRM</a>, from the movie Fight Club."
+    },
+    {
+        "title": "Welcome!",
+        "text": "You can now start adding sites by going to it's url and clicking on the <span class='icon-heart'></span> icon.",
+        "bgImage": "img/bg/moonrise-kingdom.jpg",
+        "fontColor": "#fff",
+        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+    },
+    {
+        "text": "Maybe you need to get away from the screen for a bit?",
+        "bgImage": "img/bg/eyes-screen.gif",
+        "bgColor": "rgb(20, 163, 205)",
+        "fontColor": "rgb(999,999,999)",
+        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+    },
+    {
+        "bgImage": "img/bg/fresh-air.gif",
+        "text": "Sometimes all you need is a breeze of fresh air...",
+        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+    },
+    {
+        "bgImage": "img/bg/rain.gif",
+        "title": "Are you sure?",
+        "credits": "Image: <a target='_blank' href='http://iwdrm.tumblr.com/post/4608168185'>IWDRM</a>, from the movie The Truman Show."
+    },
+    {
+        "bgImage": "img/bg/breath.gif",
+        "title": "Don't stop!",
+        "text": "Just pause for a second and breath...",
+        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+    },
+    {
+        "bgImage": "img/bg/breath.gif",
+        "text": "Replace fear of the unknown with curiosity."
+    },
+    {
+        "bgImage": "img/bg/breath.gif",
+        "text": "Decide that you want it more than you are afraid of it."
+    },
+    {
+        "bgImage": "img/bg/breath.gif",
+        "text": "Yesterday is history; tomorrow is a mystery. Today is a gift, which is why we call it the present. -- Bil Keane"
+    }
+]

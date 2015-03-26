@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Love Love Love</title>
+
+		<meta name="description" content="Keeping me in the zone...">
+		<meta name="author" content="Maarten Hunink">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<script id="section" type="text/x-handlebars-template">
+					<section {{#if bgImage}} data-background="{{bgImage}}" {{/if}} {{#if fontColor}}style="color:{{fontColor}};"{{/if}}>
+						{{#if title}}
+							<h1>{{{title}}}</h1>
+						{{/if}}
+						{{#if text}}
+							<h2>{{{text}}}</h2>
+						{{/if}}
+						
+					</section>
+				</script>
+			</div>
+			<script id="credits" type="text/x-handlebars-template">
+				<p class="credits"><span>Credits</span><span>{{{credits}}}</span></p>
+			</script>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/handlebars-v2.0.0.js"></script>
+		<script src="js/global.js"></script>
+		<script src="js/db.js"></script>
+		<script src="js/magic.js"></script>
+
+	</body>
+</html>
