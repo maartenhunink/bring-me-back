@@ -9,16 +9,28 @@
 <section id="section-blocked-sites">
 	<h3>Blocked sites</h3>
 	<div id="urls"></div>
-	<p class="small light">Add a new site by clicking on the <span class="icon-heart"></span> icon when you're on it.</p>
+	<p class="small light">You can add a new website by clicking on the Bring Me Back button when you're on it.</p>
 </section>
 
-<section>
-	<h3>Options</h3>
-	<p class="small light">Sometimes you might want to turn me off. Simply turn me back on when you want to focus again, or feel lost, distracted, unhappy, etc...</p>
-	<label>
-	  <input type="checkbox" id="love-on"> On
-	</label>
-</section>
+<section id="section-disable">
+	<h3>Disable</h3>
+	<p class="small light">Sometimes you might want to browse the internet without limitations. In that case, decide for how long you want to disable Bring Me Back, enjoy browsing for as long as you choose and we'll bring you back when it's time to come back... </p>
+	<p class="small warning disable-on">Bring Me Back is disabled, <a href="#" class="disable-stop">re-enable</a> it.</p>
+	<div class="disable-off">
+		<select class="disable-value">
+			<option value="1">1 Minute</option>
+			<option value="3">3 Minutes</option>
+			<option value="7">7 Minutes</option>
+			<option value="15">15 Minutes</option>
+			<option value="30">30 Minutes</option>
+			<option value="60">1 Hour</option>
+			<option value="120">2 Hours</option>
+			<option value="240">4 Hours</option>
+			<option value="480">8 Hours</option>
+		</select>
+		<button class="disable-start">Disable</button>
+	</div>
+	</section>
 
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/global.js"></script>

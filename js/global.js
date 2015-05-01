@@ -38,24 +38,15 @@ function functiontofindIndexByKeyValue(arraytosearch, key, valuetosearch) {
 function addUrl() {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
         chrome.storage.sync.get({urls: []},function (result){
-            urlsToLove = result.urls;
+            blockedUrls = result.urls;
             var newUrl = '*://'+simple_domain(tabs[0].url)+'/*';
-            if(functiontofindIndexByKeyValue(urlsToLove, "url", newUrl) == null){
-                urlsToLove.push({'title' : tabs[0].title, 'url' : newUrl, 'favIconUrl' : tabs[0].favIconUrl});
+            if(functiontofindIndexByKeyValue(blockedUrls, "url", newUrl) == null){
+                blockedUrls.push({'title' : tabs[0].title, 'url' : newUrl, 'favIconUrl' : tabs[0].favIconUrl});
             }
-            chrome.storage.sync.set({loveOn: true, "urls": urlsToLove});
-            toggleIcon(true)
+            chrome.storage.sync.set({"urls": blockedUrls});
             chrome.tabs.update({
                 url: chrome.extension.getURL('index.html?newurl=true')
             });
         });
     });
-}
-
-function toggleIcon(on){
-    if(on){
-      chrome.browserAction.setIcon({path:'img/icon.png'})  
-    } else {
-      chrome.browserAction.setIcon({path:'img/icon-grey.png'})  
-    }
 }

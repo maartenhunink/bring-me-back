@@ -1,11 +1,11 @@
+var bg = chrome.extension.getBackgroundPage();
+
 var options = [];
 function restore_options() {
   chrome.storage.sync.get({
-    loveOn: true,
     urls: []
   }, function(result) {
     options = result;
-    $('#love-on').prop('checked', options.loveOn);
     for (var i = 0; i < options.urls.length; i++) {
         var newEl = '<div class="url">' 
                       +'<img src="'+options.urls[i].favIconUrl+'">'
@@ -15,6 +15,11 @@ function restore_options() {
         $('#urls').append(newEl);
     }
   });
+  chrome.alarms.get('reEnable', function(alarm){
+    if(alarm !== undefined){
+      $('#section-disable').addClass('disabled');
+    }
+  })
 }
 
 $(function() {
@@ -26,11 +31,13 @@ $(function() {
     $(this).parent().remove();
     e.preventDefault();
   })
-  $('#love-on').change(function(){
-    var el = $(this);
-    chrome.storage.sync.set({
-      loveOn: el.prop('checked')
-    })
-    toggleIcon(el.prop('checked'))
+  $('.disable-start').click(function(){
+    chrome.runtime.sendMessage({disable: true, minutes: parseInt($('.disable-value').val())});
+    $('#section-disable').addClass('disabled');
+  })
+  $('.disable-stop').click(function(e){
+    chrome.runtime.sendMessage({enable: true});
+    $('#section-disable').removeClass('disabled');
+    e.preventDefault();
   })
 });

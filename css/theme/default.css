@@ -64,7 +64,7 @@ body {
 .reveal {
   font-size: 36px;
   font-weight: normal;
-  color: #eeeeee; }
+  color: #000; }
 
 ::selection {
   color: white;
@@ -83,7 +83,13 @@ body {
   margin: 0 0 20px 0;
   line-height: 110%;
 }
-
+.reveal .no-bg h2 span{
+  background: #EE4C88;
+  color: #fff;
+}
+.reveal h5{
+  color: #bbb;
+}
 /*********************************************
  * LINKS
  *********************************************/

@@ -72,12 +72,17 @@ p.small{
 p.light{
 	color: #bbb;
 }
+p.warning{
+	color: #ff0000;
+}
+p.warning a{
+	color: #ff0000;
+}
 #section-blocked-sites p{
 	margin-top: 4px;
 }
-
 .url{
-	padding: 5px 0 5px 20px;
+	padding: 5px 20px 5px 20px;
 	position: relative;
 }
 .url img{
@@ -90,21 +95,25 @@ p.light{
 }
 .url .delete-item{
 	position: absolute;
-	left: 0;
+	right: 0;
 	top: 4px;
+	display: none;
 	text-decoration: none;
 	color: #ccc;
-	display: none;
 	padding: 2px;
 }
 
 .url:hover .delete-item{
 	display: block;
 }
-.url:hover img{
-	display: none;
-}
 
 .url:hover .delete-item:hover{
 	color: red;
+}
+
+#section-disable.disabled .disable-off, .disable-on{
+	display: none;
+}
+#section-disable.disabled .disable-on{
+	display: block;
 }

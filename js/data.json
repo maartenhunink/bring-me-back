@@ -1,48 +1,213 @@
 [
     {
-        "bgImage": "img/bg/patting.gif",
-        "credits": "Image: <a target='_blank' href='http://iwdrm.tumblr.com/post/41436659343'>IWDRM</a>, from the movie Fight Club."
+        "text": "Maybe you need to get away from the screen for a bit?",
+        "bgImage": "img/bg/eyes-screen.gif",
+        "bgColor": "rgb(20, 163, 205)",
+        "fontColor": "#fff",
+        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
     },
     {
-        "title": "Welcome!",
-        "text": "You can now start adding sites by going to it's url and clicking on the <span class='icon-heart'></span> icon.",
+        "text": "Sometimes all you need is a breeze of fresh air...",
+        "bgImage": "img/bg/fresh-air.gif",
+        "fontColor": "#fff",
+        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+    },
+    {
+        "title": "Don't stop!",
+        "text": "Just pause for a second and breath...",
+        "bgImage": "img/bg/breath.gif",
+        "fontColor": "#fff",
+        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+    },
+    {
+        "text": "Replace fear of the unknown with curiosity.",
+        "source": "Dany Gokey"
+    },
+    {
+        "text": "Yesterday is history; tomorrow is a mystery. Today is a gift, which is why we call it the present.",
+        "source": "Bil Keane"
+    },
+    {
+        "text": "I have just three things to teach: simplicity, patience, compassion. These three are your greatest treasures.",
+        "source": "Lao Tzu"
+    },
+    {
+        "text": "In character, in manner, in style, in all things, the supreme excellence is simplicity.",
+        "source": "Henry Wadsworth Longfellow"
+    },
+    {
+        "text": "If we don't discipline ourselves, the world will do it for us.",
+        "source": "William Feather"
+    },
+    {
+        "text": "Rule your mind or it will rule you.",
+        "source": "Horace",
+        "bgImage": "img/bg/eraserhead.gif",
+        "fontColor": "#fff",
+        "credits": "Image: <a target='_blank' href='http://iwdrm.tumblr.com/post/4608168185'>IWDRM</a>, from the movie The Truman Show."
+    },
+    {
+        "text": "All that we are is the result of what we have thought.",
+        "source": "Buddha"
+    },
+    {
+        "text": "Doing just a little bit during the time we have available puts you that much further ahead than if you took no action at all.",
+        "source": "Pulsifer, Take Action; Don't Procrastinate"
+    },
+    {
+        "text": "Never leave that till tomorrow which you can do today.",
+        "source": "Benjamin Franklin"
+    },
+    {
+        "text": "Procrastination is like a credit card: it's a lot of fun until you get the bill.",
+        "source": "Christopher Parker",
+        "bgImage": "img/bg/rain.gif",
+        "fontColor": "#fff",
+        "credits": "Image: <a target='_blank' href='http://iwdrm.tumblr.com/post/4608168185'>IWDRM</a>, from the movie The Truman Show."
+    },
+    {
+        "text": "Someday is not a day of the week.",
+        "source": "Author Unknown"
+    },
+    {
+        "text": "Tomorrow is often the busiest day of the week.",
+        "source": "Spanish Proverb"
+    },
+    {
+        "text": "I can accept failure, everyone fails at something. But I can't accept not trying.",
+        "source": "Michael Jordan"
+    },
+    {
+        "text": "There’s a myth that time is money. In fact, time is more precious than money. It’s a nonrenewable resource. Once you’ve spent it, and if you’ve spent it badly, it’s gone forever.",
+        "source": "Neil A. Fiore"
+    },
+    {
+        "text": "Nothing can stop the man with the right mental attitude from achieving his goal; nothing on earth can help the man with the wrong mental attitude.",
+        "source": "Thomas Jefferson"
+    },
+    {
+        "text": "There is only one success, to be able to spend your life in your own way.",
+        "source": "Christopher Morley",
         "bgImage": "img/bg/moonrise-kingdom.jpg",
         "fontColor": "#fff",
         "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
     },
     {
-        "text": "Maybe you need to get away from the screen for a bit?",
-        "bgImage": "img/bg/eyes-screen.gif",
-        "bgColor": "rgb(20, 163, 205)",
-        "fontColor": "rgb(999,999,999)",
-        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+        "text": "Success is the good fortune that comes from aspiration, desperation, perspiration and inspiration.",
+        "source": "Evan Esar"
     },
     {
-        "bgImage": "img/bg/fresh-air.gif",
-        "text": "Sometimes all you need is a breeze of fresh air...",
-        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+        "text": "We are still masters of our fate. We are still captains of our souls.",
+        "source": "Winston Churchill"
     },
     {
-        "bgImage": "img/bg/rain.gif",
-        "title": "Are you sure?",
-        "credits": "Image: <a target='_blank' href='http://iwdrm.tumblr.com/post/4608168185'>IWDRM</a>, from the movie The Truman Show."
+        "text": "Our truest life is when we are in dreams awake.",
+        "source": "Henry David Thoreau"
     },
     {
-        "bgImage": "img/bg/breath.gif",
-        "title": "Don't stop!",
-        "text": "Just pause for a second and breath...",
-        "credits": "Image: <a target='_blank' href='http://technoir.nl/post/72804092928/january2014-submarine'>TECH NOIR</a>, from the movie Submarine."
+        "text": "The best way to make your dreams come true is to wake up.",
+        "source": "Paul Valery"
     },
     {
-        "bgImage": "img/bg/breath.gif",
-        "text": "Replace fear of the unknown with curiosity."
+        "text": "Life without endeavor is like entering a jewel mine and coming out with empty hands.",
+        "source": "Japanese Proverb"
     },
     {
-        "bgImage": "img/bg/breath.gif",
-        "text": "Decide that you want it more than you are afraid of it."
+        "text": "Happiness does not consist in pastimes and amusements but in virtuous activities.",
+        "source": "Aristotle"
     },
     {
-        "bgImage": "img/bg/breath.gif",
-        "text": "Yesterday is history; tomorrow is a mystery. Today is a gift, which is why we call it the present. -- Bil Keane"
-    }
+        "text": "By constant self-discipline and self-control, you can develop greatness of character.",
+        "source": "Grenville Kleiser"
+    },
+    {
+        "text": "The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.",
+        "source": "Vince Lombardi Jr."
+    },
+    {
+        "text": "At the end of the day, let there be no excuses, no explanations, no regrets.",
+        "source": "Steve Maraboli"
+    },
+    {
+        "text": "Inaction will cause a man to sink into the slough of despond and vanish without a trace.",
+        "source": "Farley Mowat"
+    },
+    {
+        "text": "True freedom is impossible without a mind made free by discipline.",
+        "source": "Mortimer J. Adler"
+    },
+    {
+        "text": "The most powerful control we can ever attain, is to be in control of ourselves.",
+        "source": "Chris Page"
+    },
+    {
+        "text": "Idleness is only the refuge of weak minds, and the holiday of fools.",
+        "source": "Philip Dormer Stanhope",
+        "bgImage": "img/bg/lost-in-translation.gif",
+        "fontColor": "#fff",        
+        "credits": "Image: <a target='_blank' href='http://iwdrm.tumblr.com/post/41436659343'>IWDRM</a>, from the movie Lost In Translation."
+    },
+    {
+        "text": "This is your life and it's ending one minute at a time.",
+        "source": "Tyler Durden, Fight Club",
+        "bgImage": "img/bg/patting.gif",
+        "fontColor": "#fff",        
+        "credits": "Image: <a target='_blank' href='http://iwdrm.tumblr.com/post/41436659343'>IWDRM</a>, from the movie Fight Club."
+    },
+    {
+        "text": "You create opportunities by performing, not complaining.",
+        "source": "Muriel Siebert"
+    },
+    {
+        "text": "Great achievement is usually born of great sacrifice, and is never the result of selfishness.",
+        "source": "Napoleon Hill"
+    },
+    {
+        "text": "Whether you think you can, or you think you can't, you're right.",
+        "source": "Henry Ford"
+    },
+    {
+        "text": "Even if I knew that tomorrow the world would go to pieces, I would still plant my apple tree.",
+        "source": "Martin Luther",
+        "fontColor": "#fff",
+        "fontColorBg" : "#a2ff5d"
+    },
+    {
+        "text": "The best time to plant a tree was 20 years ago. The second best time is now.",
+        "source": "Chinese Proverb",
+        "fontColor": "#fff",
+        "fontColorBg" : "#a2ff5d"
+    },
+    {
+        "text": "Either you run the day, or the day runs you.",
+        "source": "Jim Rohn",
+        "fontColor": "#fff",
+        "fontColorBg": "#5994ff"
+    },
+    {
+        "text": "Life shrinks or expands in proportion to one’s courage.",
+        "source": "Anais Nin"
+    },
+    {
+        "text": "If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced.",
+        "source": "Vincent Van Gogh"
+    },
+    {
+        "text": "Everything you’ve ever wanted is on the other side of fear.",
+        "source": "George Addair"
+    },
+    {
+        "text": "Fall seven times and stand up eight.",
+        "source": "Japanese Proverb"
+    },
+    {
+        "text": "Wherever you go, there you are.",
+        "source": "Jon Kabat-Zinn"
+    },
+    {
+        "text": "Being vulnerable is the only way to allow your heart to feel true pleasure.",
+        "source": "Bob Marley",
+        "fontColor": "#fff",
+        "fontColorBg": "#FF5D99"
+   }
 ]

@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Love Love Love</title>
+		<title>What do you want?</title>
 
-		<meta name="description" content="Keeping me in the zone...">
+		<meta name="description" content="Bringing me back...">
 		<meta name="author" content="Maarten Hunink">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -21,25 +21,28 @@
 	</head>
 
 	<body>
-
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<script id="section" type="text/x-handlebars-template">
-					<section {{#if bgImage}} data-background="{{bgImage}}" {{/if}} {{#if fontColor}}style="color:{{fontColor}};"{{/if}}>
+					<section {{#if bgImage}} data-background="{{bgImage}}" {{else}} class="no-bg" {{/if}} {{#if fontColor}}style="color:{{fontColor}};"{{/if}}>
 						{{#if title}}
 							<h1>{{{title}}}</h1>
 						{{/if}}
 						{{#if text}}
-							<h2>{{{text}}}</h2>
+							<h3><span {{#if fontColorBg}} style="background-color:{{fontColorBg}}" {{/if}}>{{{text}}}</span></h3>
 						{{/if}}
-						
+						{{#if source}}
+							<h5>{{{source}}}</h5>
+						{{/if}}								
 					</section>
 				</script>
 			</div>
 			<script id="credits" type="text/x-handlebars-template">
-				<p class="credits"><span>Credits</span><span>{{{credits}}}</span></p>
+				{{#if credits}}
+					<p class="credits"><span>Credits</span><span>{{{credits}}}</span></p>
+				{{/if}}
 			</script>
 		</div>
 

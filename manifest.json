@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
   "name": "Bring Me Back",
-  "description": "This extension will bring you back to where you actually want to be by offering you some love and insight when you feel like you need your internet fix.",
+  "description": "When you get lost in the vast infinity of the internet, you can use this extension to bring you back to where you actually want to be.",
   "version": "0.1",
   "incognito": "split",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-  "permissions": [ "tabs", "webRequest", "webRequestBlocking", "\u003Call_urls>", "storage", "contextMenus", "identity"],
+  "permissions": [ "tabs", "webRequest", "webRequestBlocking", "\u003Call_urls>", "storage", "contextMenus", "alarms"],
   "browser_action": {
     "default_icon": "img/icon.png",
     "default_popup": "popup.html"

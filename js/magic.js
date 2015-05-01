@@ -2,15 +2,14 @@ $(function() {
 
 	var server;
 	db.open( {
-	    server: 'love',
-	    version: 2,
+	    server: 'bringmeback',
+	    version: 1,
 	    schema: {
 	        cards: {
 	            key: { keyPath: 'id' , autoIncrement: true }
 	        }
 	    }
-	} ).then( function ( s ) {
-	    server = s
+	} ).then( function ( server ) {
         
         // for now clear and add the data, because refreshing the app takes to much time...
         server.cards.clear().then(function(){
@@ -21,13 +20,10 @@ $(function() {
 						.execute()
 						.then(function (result) {
 
-							var newDeck = Math.floor(Math.random() * (result.length - 2)) + 2;
+							var newDeck = Math.floor(Math.random() * (result.length));
 							chrome.storage.sync.get(['lastRefresh', 'deckId'],function (storageResult){
-								if(Reveal.getQueryHash().newurl){
+								if(Reveal.getQueryHash().newinstall){
 									newDeck = 0;
-								} else if(Reveal.getQueryHash().newinstall){
-									newDeck = 1;
-									console.log('new install')
 								} else if(isEmpty(storageResult)){
            							chrome.storage.sync.set({lastRefresh: Date.now(), deckId : newDeck});
 								} else {

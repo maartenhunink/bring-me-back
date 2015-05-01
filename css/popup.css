@@ -54,36 +54,37 @@ p.small{
 p.light{
   color: #bbb;
 }
+.bmb-logo{
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  background: url(../img/sprite.png) no-repeat;
+}
 .add-url{
   cursor: pointer;
 }
-.add-url .icon-heart{
-  font-size: 5em;
-  margin: 10px 0 -5px;
-  color: #333;  
-  display: block;
+.hide-add-url .add-url{
+  cursor: default;
 }
-.add-url:hover .icon-heart{
-  -webkit-transition: color 300ms ease;
-  -moz-transition: color 300ms ease;
-  -ms-transition: color 300ms ease;
-  -o-transition: color 300ms ease;
-  transition: color 300ms ease;
-  color: red;
+.add-url .bmb-logo{
+  background-position: 0 -48px;
+  margin-bottom: 15px;
+}
+.add-url:hover .bmb-logo{
+  background-position: 0 0;
 }
 .hide-add-url .add-url a{
   display: none;
 }
-.hide-add-url .add-url .icon-heart{
-  color: red;
-  margin-bottom: -15px;
-  cursor: default;
+.hide-add-url .add-url .bmb-logo{
+  background-position: 0 0;
+  margin-bottom: 0;
 }
-.love-off.hide-add-url .add-url .icon-heart{
-  color: #333;
+.disabled.hide-add-url .add-url .bmb-logo{
+  background-position: 0 -48px;
 }
-.love-off.hide-add-url .add-url:hover .icon-heart{
-  color: #333;
+.disabled.hide-add-url .add-url:hover .bmb-logo{
+  background-position: 0 -48px;
 }
 .top{
   padding: 10px;
@@ -121,10 +122,14 @@ p.light{
 .options p a:hover{
   color: #333;
 }
-#love-on{
+#re-enable{
   display: none;
 }
-.love-off #love-on{
+#re-enable img{
+  float: left;
+  margin-right: 4px;
+}
+.disabled #re-enable{
   display: inline;
 }
 *:focus  {  

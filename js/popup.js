@@ -9,13 +9,11 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
 	}
 });
 
-chrome.storage.sync.get(function (result){
-	if(!result.loveOn){
-		$('body').addClass('love-off');
+chrome.alarms.get('reEnable', function(alarm){
+	if(alarm !== undefined){
+		$('body').addClass('disabled');
 	}
 })
-
-
 
 $(function() {
 	$('.add-url').click(function(e){
@@ -27,20 +25,14 @@ $(function() {
 	})
 
 	$('#open-options').click(function(e){
-		chrome.tabs.create({url: 'chrome://extensions?options=pfcedikjhcnichhgpjnnjhdnkamdcnpm'});
+		chrome.tabs.create({url: 'chrome://extensions?options='+chrome.runtime.id});
         window.close();
         e.preventDefault();
 	})
 
-	// $('#open-options').click(function(e){
-	// 	chrome.tabs.create({url: 'chrome-extension://dkiedlkkgecifhikgblefjmiehccoomk/options.html#/'});
- //        window.close();
- //        e.preventDefault();
-	// })
 
-    $('#love-on').click(function (e){
-	    chrome.storage.sync.set({loveOn: true});
-        toggleIcon(true)
+    $('#re-enable').click(function (e){
+	    chrome.runtime.sendMessage({enable: true});
         window.close();
     	e.preventDefault();
     })
