@@ -119,11 +119,11 @@ chrome.runtime.onInstalled.addListener(function(details){
 chrome.contextMenus.create({"title": 'Bring Me Back', "contexts": ['all'], "onclick": addUrl});
 
 
-  chrome.alarms.get('reEnable', function(alarm){
-    if(alarm === undefined){
-      enable();
-    }
-  })
+chrome.alarms.get('reEnable', function(alarm){
+  if(alarm === undefined){
+    enable();
+  }
+})
 
 
 // when a new url is added, trigger re-enable so the new url will also be listened to.
@@ -138,11 +138,12 @@ chrome.runtime.onMessage.addListener(
     if (request.disable){
       disable()
 
+      chrome.alarms.create('reEnable', {delayInMinutes: request.minutes});
+
       chrome.browserAction.setBadgeBackgroundColor({color: '#555'})
       minutes = request.minutes;
       refreshBadge()
 
-      chrome.alarms.create('reEnable', {delayInMinutes: request.minutes});
     }
     if (request.enable){
       enable();
@@ -156,17 +157,22 @@ chrome.alarms.onAlarm.addListener(function(reEnable){
 })
 
 function refreshBadge(){
-  if(minutes > 60){
-    time = Math.round(minutes / 60) + ' h';
-  } else {
-    time = minutes + ' m';
-  }
-  chrome.browserAction.setBadgeText({text: time});
-  console.log(minutes)
-  minutes = minutes - 1;
-  if(minutes != -1){
-    setTimeout(refreshBadge, 60000)
-  }
+  chrome.alarms.get('reEnable', function(alarm){
+    if(alarm !== undefined){
+      // minutes or hours
+      if(minutes > 60){
+        time = Math.round(minutes / 60) + ' h';
+      } else {
+        time = minutes + ' m';
+      }
+      chrome.browserAction.setBadgeText({text: time});
+      minutes = minutes - 1;
+      if(minutes != -1){
+        setTimeout(refreshBadge, 60000)
+      }
+    }
+  })
+
 }
 
 // enable blocking the urls

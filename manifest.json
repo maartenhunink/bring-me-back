@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Bring Me Back",
-  "description": "When you get lost in the vast infinity of the internet, you can use this extension to bring you back to where you actually want to be.",
+  "description": "When you get lost in the vast infinity of the internet, you can use this extension to bring you back to where you want to be.",
   "version": "0.1",
   "incognito": "split",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
