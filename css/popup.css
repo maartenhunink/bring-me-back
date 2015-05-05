@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "love-extension";
-  src:url("../fonts/love-extension.eot");
-  src:url("../fonts/love-extension.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/love-extension.woff") format("woff"),
-    url("../fonts/love-extension.ttf") format("truetype"),
-    url("../fonts/love-extension.svg#love-extension") format("svg");
+  font-family: "bring-me-back";
+  src:url("../fonts/bring-me-back.eot");
+  src:url("../fonts/bring-me-back.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/bring-me-back.woff") format("woff"),
+    url("../fonts/bring-me-back.ttf") format("truetype"),
+    url("../fonts/bring-me-back.svg#bring-me-back") format("svg");
   font-weight: normal;
   font-style: normal;
 
 }
 
 [data-icon]:before {
-  font-family: "love-extension" !important;
+  font-family: "bring-me-back" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -27,7 +27,7 @@
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: "love-extension" !important;
+  font-family: "bring-me-back" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -38,8 +38,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-heart:before {
-  content: "b";
+.icon-check-mark-circle:before {
+  content: "c";
 }
 
 body {
@@ -139,6 +139,13 @@ p.light{
 .adding-url-show .adding-url{
   display: block;
 }
+
+.adding-url .icon-check-mark-circle{
+  font-size: 56px;
+  color: #5994FF;
+  display: inline-block;
+}
+
 *:focus  {  
   outline: none;  
 }

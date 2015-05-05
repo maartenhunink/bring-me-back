@@ -131,11 +131,17 @@ chrome.storage.onChanged.addListener(function(){
   enable();
 })
 
+var minutes;
 // enable or disable the plugin from popup.js or options.js
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if (request.disable){
       disable()
+
+      chrome.browserAction.setBadgeBackgroundColor({color: '#555'})
+      minutes = request.minutes;
+      refreshBadge()
+
       chrome.alarms.create('reEnable', {delayInMinutes: request.minutes});
     }
     if (request.enable){
@@ -149,8 +155,23 @@ chrome.alarms.onAlarm.addListener(function(reEnable){
   enable();
 })
 
+function refreshBadge(){
+  if(minutes > 60){
+    time = Math.round(minutes / 60) + ' h';
+  } else {
+    time = minutes + ' m';
+  }
+  chrome.browserAction.setBadgeText({text: time});
+  console.log(minutes)
+  minutes = minutes - 1;
+  if(minutes != -1){
+    setTimeout(refreshBadge, 60000)
+  }
+}
+
 // enable blocking the urls
 function enable(){
+  chrome.browserAction.setBadgeText({text: ''});
   chrome.browserAction.setIcon({path:'img/icon.png'})  
   chrome.storage.sync.get(null,function (obj){
     var blockedUrls = obj.urls;
