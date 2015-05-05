@@ -1,0 +1,30 @@
+.bmb-quote{
+    border-left: 4px solid #ccc;
+    padding-left: 15px;
+}
+
+.bmb-quote-text
+{
+    color: #000;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.bmb-quote-source
+{
+    margin: 0;
+    color: #bbb;
+    font-size: 18px;
+}
+
+/* This hides the news feed before the JS kicks in */
+#pagelet_home_stream, div[id^='topnews_main_stream'], #pagelet_trending_tags_and_topics, div.ticker_stream, #pagelet_rhc_ticker
+{
+	display: none !important;
+}
+
+.bmb-show-timeline #pagelet_home_stream, .bmb-show-timeline div[id^='topnews_main_stream'], .bmb-show-timeline #pagelet_trending_tags_and_topics, .bmb-show-timeline div.ticker_stream, .bmb-show-timeline #pagelet_rhc_ticker
+{
+    display: inherit !important;
+}
+

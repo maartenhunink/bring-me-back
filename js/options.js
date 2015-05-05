@@ -7,19 +7,26 @@ function restore_options() {
   }, function(result) {
     options = result;
     for (var i = 0; i < options.urls.length; i++) {
-        var newEl = '<div class="url">' 
-                      +'<img src="'+options.urls[i].favIconUrl+'">'
-                      +options.urls[i].title
-                      +'<a href="#" class="delete-item icon-trash" data-id="'+i+'"></a>'
-                    +'</div>';
-        $('#urls').append(newEl);
+      var newEl = '<div class="url">' 
+                    +'<img src="'+options.urls[i].favIconUrl+'">'
+                    +options.urls[i].title
+                    +'<a href="#" class="delete-item icon-trash" data-id="'+i+'"></a>'
+                  +'</div>';
+      $('#urls').append(newEl);
     }
   });
-  chrome.alarms.get('reEnable', function(alarm){
-    if(alarm !== undefined){
+  chrome.storage.sync.get('facebookTimeline',function (result){
+    $('#facebook-timeline').attr('checked', result.facebookTimeline)
+  })
+
+  var port = chrome.runtime.connect({name: "knockknock"});
+  port.postMessage({isEnabled: true});
+  port.onMessage.addListener(function(response) {
+    if(!response.enabled){
       $('#section-disable').addClass('disabled');
     }
-  })
+  });
+
 }
 
 $(function() {
@@ -30,6 +37,12 @@ $(function() {
     chrome.storage.sync.set(options);
     $(this).parent().remove();
     e.preventDefault();
+  })
+  $('input[type=checkbox]').change(function(){
+    var elValue = $(this).is(':checked')
+    chrome.storage.sync.set({
+       'facebookTimeline': elValue
+    })
   })
   $('.disable-start').click(function(){
     chrome.runtime.sendMessage({disable: true, minutes: parseInt($('.disable-value').val())});

@@ -25,7 +25,7 @@ chrome.runtime.onInstalled.addListener(function(details){
     // add all cards to the database
 
     var db = new Dexie('bring-me-back');
-    db.version(1).stores({
+    db.version(2).stores({
         cards: "++id,text,views"
     });
 
@@ -71,7 +71,7 @@ chrome.runtime.onInstalled.addListener(function(details){
   } else if (details.reason == "update"){
     // remove and then add all cards to the database
     var db = new Dexie('bring-me-back');
-    db.version(1).stores({
+    db.version(2).stores({
         cards: "++id,text,views"
     });
     db.on('ready', function () {
@@ -138,7 +138,7 @@ chrome.runtime.onMessage.addListener(
     if (request.disable){
       disable()
 
-      chrome.alarms.create('reEnable', {delayInMinutes: request.minutes});
+      chrome.alarms.create('reEnable', {delayInMinutes: 0.2});
 
       chrome.browserAction.setBadgeBackgroundColor({color: '#555'})
       minutes = request.minutes;
@@ -149,7 +149,48 @@ chrome.runtime.onMessage.addListener(
       enable();
       chrome.alarms.clear('reEnable');
     }
+  }
+);
+
+chrome.runtime.onConnect.addListener(function(port) {
+  console.assert(port.name == "knockknock");
+  port.onMessage.addListener(function(request) {
+    if (request.getCard){
+
+      var db = new Dexie('bring-me-back');
+      db.version(2).stores({
+          cards: "++id,text,views"
+      });
+
+      db.open();
+
+      db.cards.orderBy('views').limit(20).toArray(function (obj) {
+       chrome.storage.sync.get(['lastRefresh', 'cardId'],function (storageResult){
+
+          if(isEmpty(storageResult) || (Date.now() - storageResult.lastRefresh) > 300000){
+            // show new card
+            randomNumb = Math.floor(Math.random() * (obj.length))
+            newCardId = obj[randomNumb].id;
+            chrome.storage.sync.set({lastRefresh: Date.now(), cardId : newCardId});
+            db.cards.update(newCardId, {views: obj[randomNumb].views+1})
+          } else {
+            // show old card
+            newCardId = storageResult.cardId;
+          }
+          db.cards.where('id').equals(newCardId).each(function(obj){
+             port.postMessage({card: obj});
+          })
+        })
+      }).catch(function (error) {
+          console.error(error.stack || error);
+      });
+    } else if (request.isEnabled){
+      chrome.alarms.get('reEnable', function(alarm){
+        port.postMessage({enabled: (alarm === undefined)})
+      })
+    }
   });
+});
 
 // re-enable the plugin after the alarm is finished
 chrome.alarms.onAlarm.addListener(function(reEnable){
@@ -178,7 +219,13 @@ function refreshBadge(){
 // enable blocking the urls
 function enable(){
   chrome.browserAction.setBadgeText({text: ''});
-  chrome.browserAction.setIcon({path:'img/icon.png'})  
+  chrome.browserAction.setIcon({path:'img/icon.png'})
+
+  chrome.tabs.query({url: '*://www.facebook.com/*'}, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {hideFacebookTimeline: true});
+  });
+
+
   chrome.storage.sync.get(null,function (obj){
     var blockedUrls = obj.urls;
     if(chrome.webRequest.onBeforeRequest.hasListener(replaceUrls)){
