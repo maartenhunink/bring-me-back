@@ -138,7 +138,7 @@ chrome.runtime.onMessage.addListener(
     if (request.disable){
       disable()
 
-      chrome.alarms.create('reEnable', {delayInMinutes: 0.2});
+      chrome.alarms.create('reEnable', {delayInMinutes: request.minutes});
 
       chrome.browserAction.setBadgeBackgroundColor({color: '#555'})
       minutes = request.minutes;
@@ -221,12 +221,16 @@ function enable(){
   chrome.browserAction.setBadgeText({text: ''});
   chrome.browserAction.setIcon({path:'img/icon.png'})
 
-  chrome.tabs.query({url: '*://www.facebook.com/*'}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {hideFacebookTimeline: true});
-  });
-
-
   chrome.storage.sync.get(null,function (obj){
+
+    if(obj.facebookTimeline){
+      chrome.tabs.query({url: '*://www.facebook.com/*'}, function(tabs) {
+        tabs.forEach(function(tab){
+          chrome.tabs.sendMessage(tab.id, {hideFacebookTimeline: true});
+        })
+      });
+    }
+
     var blockedUrls = obj.urls;
     if(chrome.webRequest.onBeforeRequest.hasListener(replaceUrls)){
       chrome.webRequest.onBeforeRequest.removeListener(replaceUrls);
