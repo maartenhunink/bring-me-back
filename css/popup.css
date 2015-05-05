@@ -112,13 +112,6 @@ p.light{
   font-weight: bold;
   margin-right: 12px;
 }
-.options p a .icon-heart{
-  color: red;
-  margin-top: 1px;
-  float: left;
-  font-size: 1.2em;
-  margin-right: 4px;
-}
 .options p a:hover{
   color: #333;
 }
@@ -142,7 +135,7 @@ p.light{
 
 .adding-url .icon-check-mark-circle{
   font-size: 56px;
-  color: #5994FF;
+  color: #59FF8E;
   display: inline-block;
 }
 
