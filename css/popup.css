@@ -59,6 +59,7 @@ p.light{
   height: 48px;
   width: 48px;
   background: url(../img/sprite.png) no-repeat;
+  margin-bottom: 15px;
 }
 .add-url{
   cursor: pointer;
@@ -68,7 +69,6 @@ p.light{
 }
 .add-url .bmb-logo{
   background-position: 0 -48px;
-  margin-bottom: 15px;
 }
 .add-url:hover .bmb-logo{
   background-position: 0 0;
@@ -131,6 +131,13 @@ p.light{
 }
 .disabled #re-enable{
   display: inline;
+}
+
+.adding-url, .adding-url-show .add-url{
+  display: none;
+}
+.adding-url-show .adding-url{
+  display: block;
 }
 *:focus  {  
   outline: none;  

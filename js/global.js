@@ -44,9 +44,6 @@ function addUrl() {
                 blockedUrls.push({'title' : tabs[0].title, 'url' : newUrl, 'favIconUrl' : tabs[0].favIconUrl});
             }
             chrome.storage.sync.set({"urls": blockedUrls});
-            chrome.tabs.update({
-                url: chrome.extension.getURL('index.html?newurl=true')
-            });
         });
     });
 }

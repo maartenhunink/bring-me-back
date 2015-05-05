@@ -16,7 +16,7 @@
     "128": "img/icon-128.png"
   },
   "background": {
-    "scripts": ["js/db.js", "js/global.js", "js/background.js"]
+    "scripts": ["js/dexie.js", "js/global.js", "js/background.js"]
   },
   "options_page": "options.html",
   "options_ui": {

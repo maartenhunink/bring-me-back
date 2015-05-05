@@ -18,8 +18,11 @@ chrome.alarms.get('reEnable', function(alarm){
 $(function() {
 	$('.add-url').click(function(e){
 		if(!$('.hide-add-url').length){
-	        addUrl();
-	        window.close();
+			$('body').addClass('adding-url-show')
+	        setTimeout(function(){
+		        addUrl();
+		        window.close();
+	        }, 2500)
 		}
         e.preventDefault();
 	})

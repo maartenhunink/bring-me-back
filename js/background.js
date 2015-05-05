@@ -23,66 +23,95 @@ chrome.runtime.onInstalled.addListener(function(details){
     chrome.storage.sync.set({"urls": blockedUrls});
 
     // add all cards to the database
-    var server;
-    db.open({
-        server: 'bringmeback',
-        version: 1,
-        schema: {
-            cards: {
-                key: { keyPath: 'id' , autoIncrement: true }
-            }
-        }
-    }).then(function (server){
-        server.cards.query()
-          .filter()
-          .execute()
-          .then(function (results){
-            // get json without jquery
-            request = new XMLHttpRequest();
-            request.open('GET', 'js/data.json', true);
 
-            request.onload = function() {
-              if (request.status >= 200 && request.status < 400){
-                // Success!
-                result = JSON.parse(request.responseText);
-                server.cards.add(result).then( function ( item ) {
-                });  
-              }
-            };
-            request.send();
-          } );
+    var db = new Dexie('bring-me-back');
+    db.version(1).stores({
+        cards: "++id,text,views"
     });
+
+    db.on('ready', function () {
+        return db.cards.count(function (count) {
+            if (count > 0) {
+                console.log("Already populated");
+            } else {
+                console.log("Database is empty. Populating from ajax call...");
+                return new Dexie.Promise(function (resolve, reject) {
+                    // get json without jquery
+                    request = new XMLHttpRequest();
+                    request.open('GET', 'js/data.json', true);
+
+                    request.onload = function() {
+                      if (request.status >= 200 && request.status < 400){
+                        // Success!
+                        data = JSON.parse(request.responseText);
+                        resolve(data);
+                      } else {
+                        // Error :-(
+                        reject(request.status)
+                      }
+                    };
+                    request.send();
+
+                }).then(function (data) {
+                    console.log("Got ajax response. We'll now add the objects.");
+                    return db.transaction('rw', db.cards, function () {
+                        data.forEach(function (item) {
+                            console.log("Adding object: " + JSON.stringify(item));
+                            db.cards.add(item);
+                        });
+                    });
+                }).then(function () {
+                    console.log ("Transaction committed");
+                });
+            }
+        });
+    });
+    db.open();
+
   } else if (details.reason == "update"){
     // remove and then add all cards to the database
-    var server;
-    db.open( {
-        server: 'bringmeback',
-        version: 1,
-        schema: {
-            cards: {
-                key: { keyPath: 'id' , autoIncrement: true }
-            }
-        }
-    } ).then( function ( server ) {
-        server.cards.query()
-          .filter()
-          .execute()
-          .then( function ( results ) {
-            server.cards.clear().then(function(){
-              request = new XMLHttpRequest();
-              request.open('GET', 'js/data.json', true);
+    var db = new Dexie('bring-me-back');
+    db.version(1).stores({
+        cards: "++id,text,views"
+    });
+    db.on('ready', function () {
+        return db.cards.count(function (count) {
+            if (count > 0) {
+                console.log("Already populated");
+            } else {
+                console.log("Database is empty. Populating from ajax call...");
+                return new Dexie.Promise(function (resolve, reject) {
+                    // get json without jquery
+                    request = new XMLHttpRequest();
+                    request.open('GET', 'js/data.json', true);
 
-              request.onload = function() {
-                if (request.status >= 200 && request.status < 400){
-                  // Success!
-                  result = JSON.parse(request.responseText);
-                  server.cards.add(result).then( function ( item ) {});  
-                }
-              };
-              request.send();
-            })
-          });
-    })
+                    request.onload = function() {
+                      if (request.status >= 200 && request.status < 400){
+                        // Success!
+                        data = JSON.parse(request.responseText);
+                        resolve(data);
+                      } else {
+                        // Error :-(
+                        reject(request.status)
+                      }
+                    };
+                    request.send();
+
+                }).then(function (data) {
+                    console.log("Got ajax response. We'll now add the objects.");
+                    return db.transaction('rw', db.cards, function () {
+                        data.forEach(function (item) {
+                            console.log("Adding object: " + JSON.stringify(item));
+                            db.cards.add(item);
+                        });
+                    });
+                }).then(function () {
+                    console.log ("Transaction committed");
+                });
+            }
+        });
+    });
+    db.open();
   }
 });
 
@@ -102,7 +131,7 @@ chrome.storage.onChanged.addListener(function(){
   enable();
 })
 
-// control the plugin from other pages
+// enable or disable the plugin from popup.js or options.js
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if (request.disable){
