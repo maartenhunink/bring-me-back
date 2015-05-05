@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Bring Me Back",
-  "description": "When you get lost in the vast infinity of the internet, you can use this extension to bring you back to where you want to be.",
-  "version": "0.1",
+  "description": "Get stuck procrastinating? Fed up with that? Block the sites you're addicted to and get inspired instead...",
+  "version": "0.1.1",
   "incognito": "split",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "permissions": [ "tabs", "webRequest", "webRequestBlocking", "\u003Call_urls>", "storage", "contextMenus", "alarms"],

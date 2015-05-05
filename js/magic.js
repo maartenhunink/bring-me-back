@@ -12,7 +12,7 @@ $(function() {
 
 		chrome.storage.sync.get(['lastRefresh', 'cardId'],function (storageResult){
 			if(isEmpty(storageResult) || (Date.now() - storageResult.lastRefresh) > 300000){
-				// show new card
+				show new card
 				randomNumb = Math.floor(Math.random() * (obj.length))
 				newCardId = obj[randomNumb].id;
 				chrome.storage.sync.set({lastRefresh: Date.now(), cardId : newCardId});
