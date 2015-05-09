@@ -38,11 +38,25 @@ function hideTimeline(){
 
 		quoteDiv = $("<div class='bmb-quote'/>");
 
-		quoteText = $("<p class='bmb-quote-text'>“"+response.card.text+"”</p>")
-		    .appendTo(quoteDiv);
+		if(response.card.bgImage){
+			quoteText = $("<div class='bmb-quote-img'><img src='"+chrome.extension.getURL(response.card.bgImage)+"'></div>")
+			    .appendTo(quoteDiv);
+		}
 
-		quoteSource = $("<p class='bmb-quote-source'>"+response.card.source+"</p>")
-		    .appendTo(quoteDiv);
+		if(response.card.title){
+			quoteText = $("<p class='bmb-quote-title'>"+response.card.title+"</p>")
+			    .appendTo(quoteDiv);
+		}
+
+		if(response.card.text){
+			quoteText = $("<p class='bmb-quote-text'>“"+response.card.text+"”</p>")
+			    .appendTo(quoteDiv);
+		}
+		
+		if(response.card.source){
+			quoteSource = $("<p class='bmb-quote-source'>"+response.card.source+"</p>")
+			    .appendTo(quoteDiv);
+		}
 
 		$("div#stream_pagelet").append(quoteDiv);
 	});

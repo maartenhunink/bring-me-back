@@ -210,7 +210,7 @@ function refreshBadge(){
       minutes = minutes - 1;
       if(minutes != -1){
         setTimeout(refreshBadge, 60000)
-      }
+      } 
     }
   })
 

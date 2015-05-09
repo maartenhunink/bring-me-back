@@ -1,12 +1,28 @@
 .bmb-quote{
     border-left: 4px solid #ccc;
     padding-left: 15px;
+    margin-top: 25px;
+}
+
+.bmb-quote-img{
+    margin-right: 2px;
+}
+
+.bmb-quote-img img{
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.bmb-quote-title{
+    font-size: 35px;
+    color: #ccc;
+    margin: 0;
 }
 
 .bmb-quote-text
 {
     color: #000;
-    margin-bottom: 5px;
+    margin: 0 0 5px;
     font-size: 24px;
 }
 
